@@ -1,0 +1,615 @@
+{
+  "DataSeeding": {
+    "AutomatedTestOrg": {
+      "name": "CF Test Org"
+    },
+    "AutomatedTestInit": {
+      "name": "CF Test Initiative"
+    },
+    "AutomatedTestStory": {
+      "name": "CF Test Story"
+    },
+    "SubOrg1": {
+      "name": "3CORE, CA",
+      "Init1": {
+        "name": "Books for children",
+        "PaymentProcessor": {
+          "stripeConnectionName": "Books for children Fund",
+          "stripConnectionDescription": "Books for children",
+          "stripeToken": "sk_test_njdpLzHbZ9hDckqn5sTd6RlE"
+        },
+        "Fund1": {
+          "name": "Books",
+          "code": "3CORE"
+        },
+        "Fund2": {
+          "name": "Clean Water Project",
+          "code": "STD_CWP"
+        },
+        "StoryList": {
+          "Story1": {
+            "name": "All disney a 1",
+            "summary": "disney 1 summary",
+            "monetaryGoal": "500000",
+            "participantGoal": "500000",
+            "fund1": "Books",
+            "fund2": "Clean Water Project",
+            "champion1": "qa+initiative@communityfunded.com",
+            "champion2": "qa+at.ci.init.admin1@communityfunded.com",
+            "teller1": "qa+story@communityfunded.com",
+            "teller2": "qa+at.ci.story.teller1@communityfunded.com"
+          },
+          "Story2": {
+            "name": "All disney b 2",
+            "summary": "disney 2 summary",
+            "monetaryGoal": "550000",
+            "participantGoal": "450000",
+            "fund1": "Books"
+          },
+          "Story3": {
+            "name": "All disney c 3",
+            "summary": "disney 3 summary",
+            "monetaryGoal": "550999",
+            "participantGoal": "450999",
+            "fund1": "Books"
+          },
+          "StoryIdea1": {
+            "name": "Action Story Idea",
+            "summary": "This is my story idea, we should start here!!!",
+            "monetaryGoal": "1000",
+            "monetaryGoalDisplay": "$ 1,000",
+            "firstName": "Alexandre",
+            "lastName": "Initiative",
+            "email": "qa+initiative@communityfunded.com",
+            "phoneNumber": "2073434475",
+            "duration": "5",
+            "howDidYouHeard": "On the street"
+          }
+        },
+        "RewardList": {
+          "reward1": {
+            "name": "12 USD Gift card for movies",
+            "description": "12 USD Gift card for movies description",
+            "sponsorName": "Universal",
+            "availableInventory": "100"
+          },
+          "reward2": {
+            "name": "Coffee card",
+            "description": "coffee description",
+            "sponsorName": "Universal",
+            "availableInventory": "100"
+          }
+        },
+        "MatchList": {
+          "match1": {
+            "name": "100% Matching",
+            "description": "100% description",
+            "sponsorName": "Universal",
+            "availableInventory": "100",
+            "matchMultiplier": "1"
+          },
+          "match2": {
+            "name": "25% matching",
+            "description": "match 25%",
+            "sponsorName": "Universal",
+            "availableInventory": "100",
+            "matchMultiplier": "1"
+          }
+        },
+        "ChallengeList": {
+          "challenge1": {
+            "name": "1500 Challenge",
+            "description": "desc 1400",
+            "sponsorName": "Universal",
+            "awardAmount": "1500",
+            "tier1": "1501",
+            "tier2": "1502",
+            "tier3": "1503",
+            "minDonation": "1000",
+            "maxDonation": "1250",
+            "goalAmount": "10000"
+          },
+          "challenge2": {
+            "name": "1400 Challenge",
+            "description": "desc 1400",
+            "sponsorName": "Universal",
+            "awardAmount": "1500",
+            "tier1": "1501",
+            "tier2": "1502",
+            "tier3": "1503",
+            "minDonation": "1000",
+            "maxDonation": "1250",
+            "goalAmount": "10000"
+          }
+        },
+        "TeamMembers": {
+          "member1": {
+            "email": "qa+initiative2@communityfunded.com",
+            "firstName": "Alexandre",
+            "lastName": "Initiative2"
+          },
+          "member2": {
+            "email": "qa+at.ci.init.admin2@communityfunded.com",
+            "firstName": "QA",
+            "lastName": "Initiative2"
+          }
+        }
+      },
+      "Init2": {
+        "name": "The 3 Best Bike Rides"
+      }
+    }
+  },
+  "Wait": {
+    "loadLoginPage": 1,
+    "loadDashboard": 4000,
+    "loadAppbarDropdown": 0,
+    "beforeLogin": 3000,
+    "afterLogout": 20000,
+    "logOutAction": 1,
+    "loadLoginError": 1,
+    "iframe": 3000,
+    "iframeNoWait": 1
+  },
+  "generic": {
+    "saveChangesButtonText": "Save Changes",
+    "activePageMessage": "This page is currently live",
+    "inactivePageMessage": "This page is currently disabled",
+    "enable": "Enable",
+    "disable": "Disable",
+    "noResultsFound": "No results found",
+    "woofImage": "images/woof.jpg",
+    "coucouImage": "images/coucou.png",
+    "image513KB": "images/image513KB.jpg",
+    "profile": "images/profile.jpeg",
+    "jpeg": "image/jpeg",
+    "png": "image/png",
+    "activeStatus": "Active",
+    "suspendAction": "Suspend",
+    "suspendStatus": "Suspended",
+    "activateAction": "Activate",
+    "pageNotFound": "Page Unavailable.",
+    "error404": "Error 404",
+    "saveAndContinue": "Save and Continue",
+    "saveChanges": "Save Changes",
+    "success": "Success!",
+    "emailFrom": "info@communityfunded.com",
+    "save": "Save",
+    "cancel": "Cancel"
+  },
+  "testInit": "[data-test-id=\"797-init\"]",
+  "UserRole": {
+    "ci": {
+      "OrganizationAdministrator1": {
+        "FullName": "Organization Administrator",
+        "DisplayName": "org_admin",
+        "userName": "qa+org_admin@communityfunded.com",
+        "password": "{GSGKU,L5kdCz_O",
+        "comment": "CF Org Admin",
+        "userId": "1"
+      },
+      "InitiativeAdministrator1": {
+        "userName": "qa+init_admin@communityfunded.com",
+        "password": "{GSGKU,L5kdCz_O",
+        "comment": "CF Init Admin",
+        "orgNotAssigned": "University of Buffalo",
+        "firstName": "Initiate",
+        "lastName": "Admin",
+        "displayName": "init_admin"
+      },
+      "StoryTeller1": {
+        "fullName": "Story Teller",
+        "userName": "qa+story_teller@communityfunded.com",
+        "password": "{GSGKU,L5kdCz_O",
+        "comment": "CF Story Teller"
+      },
+      "InvalidUser": {
+        "userName": "voila@gmail.com",
+        "password": "Invalid@123"
+      },
+      "TestAdminAccount": {
+        "firstName": "Test",
+        "lastName": "Account",
+        "fullName": "Test Account",
+        "userName": "sergey@communityfunded.com",
+        "password": "Kay4444@ukr",
+        "comment": "Test Admin Account"
+      },
+      "UserCheckEmail": {
+        "userName": "qa@communityfunded.com",
+        "password": "{GSGKU,L5kdCz_O"
+      }
+    },
+    "local": {
+      "OrganizationAdministrator1": {
+        "FullName": "Organization Administrator",
+        "DisplayName": "org_admin",
+        "userName": "qa+org_admin@communityfunded.com",
+        "password": "{GSGKU,L5kdCz_O",
+        "comment": "CF Org Admin",
+        "userId": "1",
+        "orgUrlPart" : "/organizations/about/org-4",
+        "initUrlPart" : "org-4/init-2",
+        "storyUrlPart" : "/stories/about/org-4/init-2/sty-2"
+      },
+      "InitiativeAdministrator1": {
+        "userName": "qa+init_admin@communityfunded.com",
+        "password": "{GSGKU,L5kdCz_O",
+        "comment": "CF Init Admin",
+        "orgNotAssigned": "University of Buffalo",
+        "firstName": "Initiative",
+        "lastName": "Admin",
+        "displayName": "init_admin"
+      },
+      "StoryTeller1": {
+        "fullName": "Story Teller",
+        "userName": "qa+story_teller@communityfunded.com",
+        "password": "{GSGKU,L5kdCz_O",
+        "comment": "CF Story Teller"
+      },
+      "TestAdminAccount": {
+        "fullName": "Test Account",
+        "userName": "sergey@communityfunded.com",
+        "password": "Kay4444@ukr",
+        "comment": "Test Admin Account"
+      },
+      "InvalidUser": {
+        "userName": "voila@gmail.com",
+        "password": "Invalid@123"
+      },
+      "UserCheckEmail": {
+        "userName": "qa@communityfunded.com",
+        "password": "{GSGKU,L5kdCz_O"
+      }
+    }
+  },
+  "ErrorList": {
+    "fundNameRequired": "A fund name is required",
+    "fundCodeRequired": "A fund code is required",
+    "fundMustBeUnique": "Fund names must be unique",
+    "initiativeHeaderTextTooLong": "headerText must be at most 255 characters",
+    "sponsorNameRequired": "Sponsor name is required.",
+    "minimumDonationError": "Must be at least $1.00",
+    "selectAmountToDonateError": "You must select an amount to donate",
+    "fundMustBeSelectedError": "You must have a fund selected",
+    "firstNameRequired": "First name is required.",
+    "lastNameRequired": "Last name is required.",
+    "emailRequired": "An email is required to continue.",
+    "phoneNumberRequired": "Phone number is required",
+    "validEmailRequired": "A valid email is required."
+  },
+  "SuccessList": {
+    "sponsorAddedSuccessfully": "You successfully added the sponsor.",
+    "fundAssociatedToStory": "New fund associated to story"
+  },
+  "CreateEditOrganization": {
+    "masterOrganization": "Community Funded",
+    "organizationName": "Colorado State University",
+    "initiativeName": "Giving Tuesday"
+  },
+  "CreateEditInitiative": {
+    "masterOrganization": "n/a",
+    "organizationName": "The Local Crowd",
+    "initiativeList": {
+      "item1": "Clean Water Initiative",
+      "item2": "Giving Tuesday"
+    }
+  },
+  "CreateEditStory": {
+    "organization": "Colorado State University",
+    "initiative": "Giving Tuesday",
+    "storyFeatureMenu": "Stories",
+    "existingStory1": "Happiness, all for you!",
+    "existingStory2": "New development",
+    "existingStory3": "Support for the theatre renovation",
+    "storyContent": "Use this space for a quick overview of the impact of support, example: Help us reach our goal of sending 10 students to the annual Leadership Conference!",
+    "createNewStoryBtnTxt": "Create New Story",
+    "storyTitleLength": "characters remaining",
+    "storyRemainingLength": "characters remaining",
+    "storySummaryLength": "characters remaining",
+    "storySummaryRemainingLength": "characters remaining"
+  },
+  "ConfigureInitiativeFunds": {
+    "organizationName": "3CORE, CA",
+    "initiativeName": "Books for children"
+  },
+  "ConfigureInitiativePaymentProcessor": {
+    "organizationName": "3CORE, CA",
+    "initiativeName": "The 3 Best Bike Rides"
+  },
+  "ConfigureInitiativeCheckoutPage": {
+    "organizationName": "Colorado State University",
+    "initiativeName": "Giving Tuesday",
+    "checkoutPageDropdownText": "Donor Checkout Form"
+  },
+  "ConfigureInitiativeCheckoutThankYouPage": {
+    "organizationName": "Colorado State University",
+    "initiativeName": "Giving Tuesday",
+    "checkoutThankYouPageDropdownText": "Donor Checkout Thank You Page"
+  },
+  "ConfigureInitiativeReceiptEmailContent": {
+    "organizationName": "Colorado State University",
+    "initiativeName": "Giving Tuesday",
+    "dropDownText": "Donor Checkout Receipt Email",
+    "emailSubjectDefault": "Thank you for your donation!",
+    "subjectCharCountDefault": "72 characters remaining",
+    "fromAddress": "qa+at.ci.org.admin1@communityfunded.com"
+  },
+  "PublishInitiativeStoryIdeaSubmissionForm": {
+    "organizationName": "Colorado State University",
+    "initiativeName": "Giving Tuesday",
+    "dropDownText": "Story Idea Submission Form",
+    "firstName": "Jean",
+    "lastName": "Kaku",
+    "email": "qa+initiative@communityfunded.com",
+    "phoneNumber": "2073447198",
+    "storyTitle": "Action Story Idea",
+    "storyIdea": "This is my story idea, we should start here!!!",
+    "fundraisingGoal": "1000",
+    "duration": "5",
+    "howDidYouHeard": "On the street",
+    "publicActiveInitiativeIdea": "Books for children",
+    "submitStoryIdeaButtonTxt": "Submit Your Story Idea"
+  },
+  "PublishEnableDonationsForAnInitiative": {
+    "organizationName": "Colorado State University",
+    "initiativeName": "Clean Water Initiative",
+    "initiativeName2": "Giving Tuesday",
+    "homeLiveEventPageText": "Home – Live Event Page",
+    "comingSoonPageText": "Home – Coming Soon Page",
+    "storyIdeaPageText": "Story Idea Submission Form",
+    "eventScheduleButtonText": "Event Schedule",
+    "eventScheduleHeaderText": "If set, this schedule will apply to all stories in this initiative with status APPROVED",
+    "eventScheduleHeaderChildText": "You may override this schedule within the details of an individual story.",
+    "fundingEnabledText": "Donations Enabled",
+    "fundingDisabledText": "Donations Disabled"
+  },
+  "PublishEnableDonationsForAnInitiativeEng": {
+    "organizationName": "Colorado State University",
+    "initiativeName": "Giving Tuesday",
+    "initiativeName2": "Clean Water Initiative",
+    "homeLiveEventPageText": "Engage Home – Live Event Page",
+    "comingSoonPageText": "Engage Home – Coming Soon Page",
+    "storyIdeaPageText": "Story Idea Submission Form",
+    "eventScheduleButtonText": "Event Schedule",
+    "eventScheduleHeaderText": "If set, this schedule will apply to all stories in this initiative with status APPROVED",
+    "eventScheduleHeaderChildText": "You may override this schedule within the details of an individual story.",
+    "fundingEnabledText": "Donations Enabled",
+    "fundingDisabledText": "Donations Disabled"
+  },
+  "ConfigureInitiativeIncentiveRewards": {
+    "organizationName": "Colorado State University",
+    "initiativeName": "Clean Water Initiative",
+    "featureMenuText": "Incentives",
+    "incentivesHeader": "Incentives",
+    "rewardButtonText": "Rewards",
+    "addNewRewardButton": "Add New Reward",
+    "addExistingRewardButton": "Add Existing Reward",
+    "addRewardButtonText": "Add Reward",
+    "newRewardMenu": "New Reward",
+    "storyTitle": "R&D",
+    "storyTitle2": "Happiness, all for you!",
+    "storyTitle3": "All disney a 1",
+    "storyTitle4": "All disney b 2",
+    "existingInitiativeReward": "12 USD Gift card for movies",
+    "existingRewardDescription": "12 USD Gift card for movies description",
+    "notSharedInitiativeReward": "Coffee card"
+  },
+  "ConfigureInitiativeIncentiveMatches": {
+    "organizationName": "Colorado State University",
+    "initiativeName": "Giving Tuesday",
+    "featureMenuText": "Incentives",
+    "incentivesHeader": "Incentives",
+    "matchesButtonText": "Matches",
+    "addNewIncentiveButton": "Add New Match",
+    "addExistingRewardButton": "Add Existing Reward",
+    "addExistingMatchButton": "Add Existing Match",
+    "addMatchButtonText": "Add Match",
+    "newMatchMenu": "New Match",
+    "storyTitle": "Support for the theatre renovation",
+    "storyTitle2": "Happiness, all for you!",
+    "storyTitle3": "All disney a 1",
+    "storyTitle4": "All disney b 2",
+    "existingInitiativeMatch": "100% Matching",
+    "existingMatchDescription": "100% description",
+    "notSharedInitiativeReward": "25% matching"
+  },
+  "ConfigureInitiativeIncentiveChallenges": {
+    "organizationName": "Colorado State University",
+    "initiativeName": "Giving Tuesday",
+    "featureMenuText": "Engage an Incentive",
+    "incentivesHeader": "Incentives",
+    "challengesButtonText": "Challenges",
+    "addNewIncentiveButton": "Add New Challenge",
+    "addExistingChallengeButton": "Add Existing Challenge",
+    "addChallengeButtonText": "Add Challenge",
+    "newChallengeMenu": "New Challenge",
+    "storyTitle": "Support for the theatre renovation",
+    "storyTitle2": "Happiness, all for you!",
+    "storyTitle3": "All disney 1",
+    "storyTitle4": "All disney b 2",
+    "existingIncentive": "1500 Challenge",
+    "existingIncentiveDescription": "desc 1500",
+    "notSharedIncentive": "1400 Challenge"
+  },
+  "ConfigureInitiativeIncentiveChallengesEng": {
+    "organizationName": "Colorado State University",
+    "initiativeName": "Giving Tuesday",
+    "featureMenuText": "Incentives",
+    "incentivesHeader": "Incentives - Engage an Incentive",
+    "challengesButtonText": "Challenges",
+    "challengesButonSponsors": "Sponsors",
+    "addNewIncentiveButton": "Add New Challenge",
+    "addExistingChallengeButton": "Add Existing Challenge",
+    "addChallengeButtonText": "Add Challenge - Engage an Incentive",
+    "newChallengeMenu": "New Challenge Engage an Incentive",
+    "storyTitle": "Support for the theatre renovation",
+    "storyTitle2": "Happiness, all for you!",
+    "storyTitle3": "All disney 1",
+    "storyTitle4": "All disney 2",
+    "existingIncentive": "1500 Challenge",
+    "existingIncentiveDescription": "desc 1500",
+    "notSharedIncentive": "1400 Challenge"
+  },
+  "ConfigureInitiativeComingSoonHomePage": {
+    "organizationName": "3CORE, CA",
+    "initiativeName": "Books for children"
+  },
+  "ConfigureInitiativeLiveEventHomePage": {
+    "organizationName": "3CORE, CA",
+    "initiativeName": "Books for children",
+    "initiativeName2": "Giving Tuesday",
+    "liveEventButtonText": "Home - Live Event Page",
+    "copyLinkButtonText": "Copy Link",
+    "pageHeaderExpandCollapse": "Page Header",
+    "welcomeHeaderExpandCollapse": "Welcome & Actions",
+    "newInitiativeHeaderText": "Children 'All' Collection",
+    "saveChangesButtonText": "Save Changes",
+    "saveSuccess": "Home Page for Initiative Books for children updated.",
+    "publicUrl": "http://localhost:8000/i/books-for-children",
+    "welcomeHeaderDefaultValue": "Welcome header",
+    "newWelcomeHeaderHeaderText": "Welcome to our initiative!",
+    "recommendedImageSizeMessage": "870px x 475px minimum. 1920px x 1200px or larger recommended.",
+    "initiativeStatisticsHeader": "Statistics",
+    "inititiveFundingGoalKeyword": "raised",
+    "inititiveFundingGoalLabel": "$0 raisedof 30,000 Goal",
+    "inititiveFundingGoalOnlyLabel": "Our Fundraising Goal: $30,000",
+    "inititiveFundingTotalOnlyLabel": "$0 raised",
+    "storyExpandCollapseText": "Stories",
+    "manageStoryCardsLabel": "Manage Story Cards",
+    "defaultStoryCardCount": "6",
+    "defaultSeeMoreText": "See More",
+    "newSeeMoreText": "Load More",
+    "initiativeStoryName": "All disney 1",
+    "initiativeStorySummary": "disney 1 summary",
+    "storyStatsTotalOnly": "$0",
+    "storyStatsGoalOnly": "$500,000"
+  },
+  "ConfigureInitiativeStoryIdeaSubmissionForm": {
+    "organizationName": "Colorado State University",
+    "initiativeName": "Giving Tuesday",
+    "dropDownText": "Story Idea Submission Form",
+    "submitStoryIdeaButtonText": "Submit Your Story Idea"
+  },
+  "DonateDonorSelectedUserPath": {
+    "quickDonateNowBtnTxt": "Donate Now",
+    "successMsgDonationAddedToCart": "Your donation has been added to your cart.",
+    "otherAmount": "100.1",
+    "quickDonateOtherBtnTxt": "Other",
+    "quickDonateConfirmOther": "GO",
+    "cartBtnTxt": "Cart",
+    "storyTitle": "R&D",
+    "storyTitle2": "New development",
+    "suspendedFund": "Water Cleaning",
+    "donateNowBtnTxt": "Donate Now",
+    "donateFrequency": "One Time",
+    "minimumDonationAlert": "$1 Minimum Donation",
+    "fundName": "Clean Water Project",
+    "checkoutPageHeader": "Secure Checkout",
+    "addCartAndContinueBtnTxt": "Add to cart and continue browsing"
+  },
+  "ManageDonationCartItems": {
+    "quickDonateNowBtnTxt": "Donate Now",
+    "successMsgDonationAddedToCart": "Your donation has been added to your cart.",
+    "otherAmount": "100.1",
+    "quickDonateOtherBtnTxt": "Other",
+    "quickDonateConfirmOther": "GO",
+    "cartBtnTxt": "Cart",
+    "storyTitle": "R&D",
+    "storyTitle2": "New development",
+    "suspendedFund": "Water Cleaning",
+    "donateNowBtnTxt": "Donate Now",
+    "donateFrequency": "One Time",
+    "minimumDonationAlert1": "$4 Minimum Donation",
+    "minimumDonationAlert2": "The minimum donation amount is $4.00",
+    "fundName": "Clean Water Project",
+    "newFundName": "School of Science",
+    "newFundCode": "GT-School of Science",
+    "checkoutPageHeader": "Secure Checkout",
+    "addCartAndContinueBtnTxt": "Add to cart and continue browsing",
+    "firstName": "Jay & Jo",
+    "lastName": "Security",
+    "displayName": "Jay & Jo Security",
+    "email": "qa+auto@communityfunded.com",
+    "phoneNumber": "2013447198",
+    "addressOne": "3011 Elati St",
+    "addressTwo": "Unit 301",
+    "city": "Dnvenver",
+    "state": "CO",
+    "postalCode": "80101",
+    "country": "US",
+    "firstName2": "J",
+    "lastName2": "S",
+    "displayName2": "JJS",
+    "email2": "qa+voila@communityfunded.com",
+    "phoneNumber2": "2013447198",
+    "addressOne2": "301",
+    "addressTwo2": "1",
+    "city2": "DEN",
+    "state2": "CO",
+    "postalCode2": "80101",
+    "country2": "US",
+    "paymentDialogHeader1": "Payment",
+    "paymentDialogHeader2": "Please enter your credit card information.",
+    "terms": "Terms and Conditions",
+    "cardNumber": "4111111111111111",
+    "cvv": "112",
+    "payNow": "Pay Now",
+    "organization": "Colorado State University",
+    "initiative": "Clean Water Initiative"
+  },
+  "ManageTeamMembers": {
+    "storyFeatureMenu": "Stories",
+    "organization": "CF Test Org",
+    "initiative": "CF Test Init",
+    "existingStory": "Support for the theatre renovation",
+    "createNewStoryBtnTxt": "Create New Story"
+  },
+  "ApproveStoryIdeaSubmission": {
+    "storyFeatureMenu": "Stories",
+    "organization": "Colorado State University",
+    "initiative": "Giving Tuesday",
+    "storyIdea": "Volleyball Team"
+  },
+  "ConfigureStoryFundsAssociations": {
+    "about": "About",
+    "paymentTab": "Payments",
+    "paymentHeader": "Story Payments",
+    "selectFundBtn": "Select Funds",
+    "selectFundLabel": "Select a Fund to Associate",
+    "existingFundName": "Giving Tuesday",
+    "existingFundCode": "STD_GT",
+    "newFundName": "School of Science",
+    "newFundCode": "GT-School of Science",
+    "existingAssociation": "1 story",
+    "newAssociation": "1 story"
+  },
+  "PreviewStoryCardContent": {
+    "organization": "3CORE, CA",
+    "storyFeatureMenu": "Stories",
+    "existingStory1": "All disney a 1",
+    "existingStory2": "All disney b 2",
+    "initiative": "Books for children",
+    "storyContent": "disney 1 summary",
+    "about": "About"
+  },
+  "InviteManageChampions": {
+    "organization": "Colorado State University",
+    "initiative": "Giving Tuesday",
+    "personalizedMessage": "Welcome to our team of champions",
+    "championFeatureMenu": "Champions",
+    "inviteChampionsBtn": "Invite Champions",
+    "sendInvitation": "Send Invitation",
+    "emailSendConfirmation": "Your email has been sent.",
+    "storyName1": "Basketball team",
+    "storyName2": "Action Story Idea",
+    "fundingGoal": "1250",
+    "participationGoal": "540"
+  },
+  "UrlRelated": {
+    "organizationPaymentTabUrlPart": "organizations/payments",
+    "initiativePaymentTabUrlPart": "initiatives/payments/",
+    "storyPaymentTabUrlPart": "/stories/payments/",
+    "initiativePagesTabUrlPart": "/initiatives/home/"
+  }
+}
