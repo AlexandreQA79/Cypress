@@ -1,0 +1,125 @@
+{
+  "name": "cf-integration",
+  "license": "UNLICENSED",
+  "jest": {
+    "verbose": true,
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "testMatch": [
+      "**/__tests__/**/*.js?(x)",
+      "**/?(*.)(spec|test).js?(x)"
+    ],
+    "testURL": "http://localhost/",
+    "moduleDirectories": [
+      "node_modules"
+    ],
+    "coverageDirectory": "./coverage",
+    "coverageThreshold": {
+      "global": {
+        "branches": 0,
+        "functions": 0,
+        "lines": 0,
+        "statements": 0
+      }
+    }
+  },
+  "version": "1.0.0",
+  "description": "End-to-end and integration testing",
+  "author": "Community Funded",
+  "scripts": {
+    "test": "npx jest",
+    "test:local": "DB_SERVER=127.0.0.1 GRAPHQLHOST=http://localhost:4001 DBUSER=campaign DBPASS=tester npx jest",
+    "test:ci": "DB_SERVER=cf-ci-build.cl1zdo7elvpg.us-west-2.rds.amazonaws.com DBUSER=awsuser DBPASS=awsuser123 GRAPHQLHOST=https://ci-v2-webhooks.communityfunded.com npx jest",
+    "test-qa": "DB_SERVER=cf-qa.communityfunded.com DBUSER=awsuser DBPASS=awsuser123 GRAPHQLHOST=https://qa-v2-webhooks.communityfunded.com npx jest",
+    "compose": "cd .. && npm run compose",
+    "dev.smoke": "git pull && yarn data.seed && npx cypress run --browser chrome --spec \"cypress/integration/smoke-test/*\"",
+    "dev.smoke.record": "git pull && yarn data.seed && npx cypress run --browser chrome --record --key 52958014-2c6e-4d0b-aa5c-d242698c2e5a --spec \"cypress/integration/smoke-test/*\"",
+    "dev.smoke.ci_no_recording": "yarn data.seed && npx cypress run --browser chrome --spec \"cypress/integration/smoke-test/*\" --env DB_SERVER=$DB_SERVER,DBUSER=$DBUSER,DBPASS=$DBPASS,GRAPHQLHOST=$GRAPHQLHOST,ADMINHOST=$ADMINHOST,PUBLICHOST=$PUBLICHOST",
+    "dev.smoke.ci": "yarn dev.seed.smoke.backup && npx cypress run --browser chrome --record --key 52958014-2c6e-4d0b-aa5c-d242698c2e5a --spec \"cypress/integration/smoke-test/*\" --env DB_SERVER=$DB_SERVER,DBUSER=$DBUSER,DBPASS=$DBPASS,GRAPHQLHOST=$GRAPHQLHOST,ADMINHOST=$ADMINHOST,PUBLICHOST=$PUBLICHOST --group SmokeTests --ci-build-id $BUILD_ID",
+    "dev.smoke.ci.backup": "yarn data.seed && npx cypress run --browser chrome --record --key 52958014-2c6e-4d0b-aa5c-d242698c2e5a --spec \"cypress/integration/smoke-test/*\" --env DB_SERVER=$DB_SERVER,DBUSER=$DBUSER,DBPASS=$DBPASS,GRAPHQLHOST=$GRAPHQLHOST,ADMINHOST=$ADMINHOST,PUBLICHOST=$PUBLICHOST",
+    "dev.smoke.ci.headless": "yarn data.seed && npx cypress run --record --key 52958014-2c6e-4d0b-aa5c-d242698c2e5a --spec \"cypress/integration/smoke-test/*\" --env DB_SERVER=$DB_SERVER,DBUSER=$DBUSER,DBPASS=$DBPASS,GRAPHQLHOST=$GRAPHQLHOST,ADMINHOST=$ADMINHOST,PUBLICHOST=$PUBLICHOST",
+    "dev.smoke.ci.parallel": "sleep 30 && npx cypress run --browser chrome --record --key 52958014-2c6e-4d0b-aa5c-d242698c2e5a --spec \"cypress/integration/Specs/*\" --env DB_SERVER=$DB_SERVER,DBUSER=$DBUSER,DBPASS=$DBPASS,GRAPHQLHOST=$GRAPHQLHOST,ADMINHOST=$ADMINHOST,PUBLICHOST=$PUBLICHOST --parallel --group Specs --ci-build-id $BUILD_ID",
+    "dev.seed.smoke": "yarn data.seed",
+    "dev.seed.smoke.backup": "yarn data.seed && npx cypress run --browser chrome --record --key 52958014-2c6e-4d0b-aa5c-d242698c2e5a --spec \"cypress/integration/dataseeding/smoke/*\" --env DB_SERVER=$DB_SERVER,DBUSER=$DBUSER,DBPASS=$DBPASS,GRAPHQLHOST=$GRAPHQLHOST,ADMINHOST=$ADMINHOST,PUBLICHOST=$PUBLICHOST --group DataSeed --ci-build-id $BUILD_ID",
+    "data.seed": "PGPASSWORD=${DBPASS:-password} psql -h ${DB_SERVER:-localhost} -U ${DBUSER:-cf_root} communityfunded -f cypress/fixtures/ci.reset.postgres.sql",
+    "data.seed.old": "PGPASSWORD=${DBPASS:-password} psql -h ${DB_SERVER:-localhost} -U ${DBUSER:-cf_root} communityfunded -f cypress/fixtures/ci.reset.postgres_OLD.sql",
+    "cypress": "concurrently -r -k -s first \"yarn embed:run:local\" \"npx cypress open\"",
+    "e2e:local": "concurrently -r -k -s first \"yarn embed:run:local\" \"npx cypress open --env DB_SERVER=127.0.0.1,GRAPHQLHOST=http://localhost:4001,ADMINHOST=http://localhost:3000,PUBLICHOST=http://localhost:8000\"",
+    "e2e:run": "concurrently -r -k -s first \"yarn embed:run\" \"npx cypress run --env DB_SERVER=$DB_SERVER,DBUSER=$DBUSER,DBPASS=$DBPASS,GRAPHQLHOST=$GRAPHQLHOST,ADMINHOST=$ADMINHOST,PUBLICHOST=$PUBLICHOST\"",
+    "e2e:run:local": "concurrently -r -k -s first \"yarn embed:run:local\" \"npx cypress run --browser chrome --env DB_SERVER=127.0.0.1,GRAPHQLHOST=http://localhost:4001,ADMINHOST=http://localhost:3000,PUBLICHOST=http://localhost:8000\"",
+    "e2e:format": "npx prettier --no-semi --single-quote --trailing-comma 'es5' --no-bracket-spacing --arrow-parens 'always'  --write **/**.ts",
+    "embed:run": "node embeds/server.js",
+    "embed:run:local": "ADMINHOST=http://localhost:3000 PUBLICHOST=http://localhost:8000 node embeds/server.js",
+    "embed:run:qa": "ADMINHOST=https://qa-v2-admin.communitiyfunded.com PUBLICHOST=https://qa-v2.communityfunded.com node embeds/server.js",
+    "load:api:run": "k6 run load/Api.js",
+    "load:api:local": "yarn load:api:run",
+    "load:api:ci": "ENVIRONMENT=ci ACCOUNT=dev+mccabe@communityfunded.com ACCOUNT_ID=2 ADMINHOST=https://ci-v2-admin.communityfunded.com PUBLICHOST=https://ci-v2.communityfunded.com yarn load:api:run",
+    "load:web:run": "echo 'Web load tests are deprecated.'",
+    "load:web:local": "echo 'Web load tests are deprecated.'",
+    "load:web:ci": "echo 'Web load tests are deprecated.'",
+    "load:web:prod": "echo 'Web load tests are deprecated.'",
+    "prepush": "yarn e2e:format && git add . && git commit -m 'chore: format'",
+    "dev.smoke.item1": "yarn data.seed && npx cypress run --headed --record --key 52958014-2c6e-4d0b-aa5c-d242698c2e5a --spec \"cypress/integration/smoke-test/CreateEditStoryPart2.ts\" --env DB_SERVER=$DB_SERVER,DBUSER=$DBUSER,DBPASS=$DBPASS,GRAPHQLHOST=$GRAPHQLHOST,ADMINHOST=$ADMINHOST,PUBLICHOST=$PUBLICHOST",
+    "dev.smoke.item2": "yarn data.seed && npx cypress run --group example1 --browser chrome --record --key 52958014-2c6e-4d0b-aa5c-d242698c2e5a --spec \"cypress/integration/smoke-test/ConfigureInitiativeComingSoonHomePage.ts\" --env DB_SERVER=$DB_SERVER,DBUSER=$DBUSER,DBPASS=$DBPASS,GRAPHQLHOST=$GRAPHQLHOST,ADMINHOST=$ADMINHOST,PUBLICHOST=$PUBLICHOST"
+  },
+  "dependencies": {
+    "@types/mocha": "^5.2.7",
+    "apollo-fetch": "^0.7.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "chalk": "^2.4.2",
+    "chrome-launcher": "^0.10.5",
+    "chromedriver": "^2.46.0",
+    "concurrently": "^4.1.2",
+    "cypress-file-upload": "^4.0.3",
+    "cypress-wait-until": "^1.7.1",
+    "cypress-xpath": "^1.4.0",
+    "dotenv": "^6.2.0",
+    "expect": "^24.0.0",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.0",
+    "faker": "^4.1.0",
+    "fsevents": "^1.2.7",
+    "gmail-tester": "^1.1.4",
+    "html-to-json": "^0.6.0",
+    "mkdirp": "^1.0.4",
+    "mocha": "^5.2.0",
+    "moment-timezone": "^0.5.26",
+    "morgan": "^1.9.1",
+    "mysql": "^2.16.0",
+    "node-vault": "^0.9.5",
+    "typescript": "^3.3.1",
+    "uniqid": "^5.1.0",
+    "util": "^0.11.1",
+    "walk-sync": "^1.1.3"
+  },
+  "optionalDependencies": {
+    "fsevents": "^1.2.7"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@cypress/webpack-preprocessor": "^4.0.3",
+    "babel-loader": "^8.0.5",
+    "cypress": "4.12.1",
+    "cypress-iframe": "^1.0.1",
+    "cypress-mouse-position": "^1.0.0",
+    "cypress-plugin-retries": "^1.5.2",
+    "jest": "^24.0.0",
+    "mocha-each": "^1.2.0",
+    "ts-loader": "^5.3.3",
+    "webpack": "^4.29.1"
+
+  },
+  "main": "vault.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/communityfunded/cf-integration.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/communityfunded/cf-integration/issues"
+  },
+  "homepage": "https://github.com/communityfunded/cf-integration#readme"
+}
